@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form-Builder</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+    <div id="Form-Builder">
+        <h2>Form Builder</h2>
+        
+        <label for="select-id"> <h3>Select Field Type</h3></label>
+
+        <select id="select-id">
+            <option value="text">Text Input</option>
+            <option value="checkbox">Check Box</option>
+            <option value="radio">Radio Button</option>
+        </select>
+        
+        <h3>Field Label</h3>
+        <!-- <label for="subdomain">Subdomain:</label> -->
+        <input type="text"  id="input"  placeholder="Enter Field label" />
+        <button id="button" onclick="createPreview()">Add Field</button>
+
+    </div>
+    <div id="Form-Preview">
+        <h2>Form Preview</h2>
+    </div>
+    <script>
+        function createPreview(){
+            let previeArea = document.getElementById("Form-Preview");
+            
+            let fieldType = document.getElementById("select-id").value;
+            let fieldLabel = document.getElementById("input").value;
+            let fieldWrapper = document.createElement("div");
+
+            let label = document.createElement("label");
+            label.textContent = fieldLabel;
+            fieldWrapper.appendChild(label);
+
+            let field = document.createElement("input");
+            field.type = fieldType; // Use the selected field type
+            fieldWrapper.appendChild(field);
+
+            previeArea.appendChild(fieldWrapper);
+
+            document.getElementById("input").value = "";
+
+        } 
+
+
+    </script>
+</body>
+</html>
